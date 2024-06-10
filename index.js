@@ -94,7 +94,7 @@ app.get("/api/tv/details/:tvid", async (req, res) => {
       },
     }
   );
-  res.json({ tv: data.data });
+  res.json({ movie: data.data });
 });
 
 //Movies endpoints
