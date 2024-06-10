@@ -6,7 +6,7 @@ import User from "./models/user.model.js";
 import connectDB from "./util/connectDB.js";
 import bcrypt from "bcryptjs";
 
-const PORT = 5000;
+const PORT = process.env.port || 5000;
 const app = express();
 
 app.use(express.json());
