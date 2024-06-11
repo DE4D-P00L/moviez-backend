@@ -34,7 +34,7 @@ app.post("/api/user/login", async (req, res) => {
     if (!isPasswordCorrect) return res.json({ error: "Wrong password!" });
     res.json({ id: user._id, username: user.username });
   } catch (error) {
-    console.log("Error in Login handler: " + error);
+    console.log("Error in login handler: " + error);
   }
 });
 
