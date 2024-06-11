@@ -25,18 +25,19 @@ app.post("/api/user/:uid", async (req, res) => {
 
 app.post("/api/user/login", async (req, res) => {
   const { username, password } = req.body;
-  console.log(username, password);
-  try {
-    if (username.trim() === "" || password.trim() === "")
-      return res.json({ error: "Invalid username or password!" });
-    const user = await User.find({ username });
-    if (!user) return res.json({ error: "Wrong username!" });
-    const isPasswordCorrect = await bcrypt.compare(password, user.password);
-    if (!isPasswordCorrect) return res.json({ error: "Wrong password!" });
-    res.json({ id: user._id, username: user.username });
-  } catch (error) {
-    console.log("Error in Login handler: " + error);
-  }
+  console.log(username, password, req.body);
+  res.json({ username });
+  // try {
+  //   if (username.trim() === "" || password.trim() === "")
+  //     return res.json({ error: "Invalid username or password!" });
+  //   const user = await User.find({ username });
+  //   if (!user) return res.json({ error: "Wrong username!" });
+  //   const isPasswordCorrect = await bcrypt.compare(password, user.password);
+  //   if (!isPasswordCorrect) return res.json({ error: "Wrong password!" });
+  //   res.json({ id: user._id, username: user.username });
+  // } catch (error) {
+  //   console.log("Error in Login handler: " + error);
+  // }
 });
 
 app.post("/api/user/signup", async (req, res) => {
