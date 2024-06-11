@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.post("/api/user/:uid", async (req, res) => {
+app.get("/api/user/:uid", async (req, res) => {
   const { uid } = req.params;
   try {
     const user = await User.findById(uid);
