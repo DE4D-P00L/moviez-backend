@@ -28,7 +28,7 @@ app.post("/api/user/login", async (req, res) => {
   try {
     if (username.trim() === "" || password.trim() === "")
       return res.json({ error: "Invalid username or password!" });
-    const user = await User.find({ username });
+    const user = await User.findOne({ username });
     if (!user) return res.json({ error: "Wrong username!" });
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) return res.json({ error: "Wrong password!" });
